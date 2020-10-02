@@ -74,7 +74,8 @@ export default {
       links: [
         { icon: "mdi-home", text: "All", route: "/" },
         { icon: "mdi-food", text: "Makanan", route: "/makanan" },
-        { icon: "mdi-coffee", text: "Minuman", route: "/minuman" }
+        { icon: "mdi-coffee", text: "Minuman", route: "/minuman" },
+        { icon: "mdi-file-chart", text: "Konfirmasi", route: "/konfirmasi" }
       ]
     };
   },

@@ -52,7 +52,12 @@
     <v-container class="my-5">
       <v-row>
         <v-col v-for="card in makanan" :key="card.id" cols="12" md="4" sm="6">
-          <v-card @click="addItemToCard(card)" class="pa-2" outlined shaped>
+          <v-card
+            @click="addItemToCard(card), (snackbar = true)"
+            class="pa-2"
+            outlined
+            shaped
+          >
             <v-img
               :src="card.src"
               class="white--text align-end"
@@ -86,7 +91,7 @@
             </v-snackbar>
             <!-- Order Button -->
             <v-btn
-              @click="addItemToCard(card)"
+              @click="addItemToCard(card), (snackbar = true)"
               class="rounded-br-xl text-capitalize"
               color="white--text orange darken-4"
               width="100%"
@@ -109,11 +114,11 @@ export default {
       snackbar: false,
       text: "Yeay! Success add to cart",
       timeout: 2000,
-      y: "top",
+      y: "top"
     };
   },
   components: {
-    Navigation,
+    Navigation
   },
   computed: {
     minuman() {
@@ -121,11 +126,11 @@ export default {
     },
     makanan() {
       return this.$store.getters.getData;
-    },
+    }
   },
   methods: {
-    ...mapActions(["addItemToCard"]),
-  },
+    ...mapActions(["addItemToCard"])
+  }
 };
 </script>
 
