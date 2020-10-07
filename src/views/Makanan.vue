@@ -9,19 +9,21 @@
           cols="12"
           md="3"
         >
-          <v-card class="pa-2" outlined shaped>
+          <v-card class="pa-2 rounded-xl card-hover" outlined>
+            <v-card-title class="text-item">{{ makanan.item }}</v-card-title>
             <v-img
-              :src="makanan.src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="200px"
               @click="addItemToCard(makanan), (snackbar = true)"
+              :src="makanan.src"
+              class="white--text align-end rounded-xl"
+              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+              height="180px"
             >
-              <v-card-title class="text">{{ makanan.item }}</v-card-title>
             </v-img>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-card-title class="text">Rp. {{ makanan.harga }}</v-card-title>
+              <v-card-title class="text-price"
+                >Rp. {{ makanan.harga }}</v-card-title
+              >
             </v-card-actions>
             <v-snackbar
               v-model="snackbar"
@@ -41,7 +43,7 @@
             </v-snackbar>
             <v-btn
               @click="addItemToCard(makanan), (snackbar = true)"
-              class="rounded-br-xl text-capitalize"
+              class="rounded-xl text-capitalize"
               color="white--text orange darken-4"
               width="100%"
               >Pesan</v-btn
@@ -59,14 +61,14 @@ import { mapActions } from "vuex";
 export default {
   name: "Makanan",
   components: {
-    Navigation
+    Navigation,
   },
   data() {
     return {
       snackbar: false,
-      text: "Yeay! Success add to cart",
+      text: "Ditambahkan ke keranjang",
       timeout: 2000,
-      y: "top"
+      y: "top",
     };
   },
   computed: {
@@ -75,33 +77,28 @@ export default {
     },
     searchQuery() {
       return this.$store.getters.searchQuery;
-    }
+    },
+    idr() {
+      return this.$store.getters.idr;
+    },
   },
   methods: {
     ...mapActions(["addItemToCard"]),
     filteredResources() {
       if (this.searchQuery) {
         // console.log(this.searchQuery)
-        return this.makanans.filter(items => {
+        return this.makanans.filter((items) => {
           return this.searchQuery
             .toLowerCase()
             .split(" ")
-            .every(v => items.item.toLowerCase().includes(v));
+            .every((v) => items.item.toLowerCase().includes(v));
         });
       } else {
         return this.makanans;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style scoped>
-.text {
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: -0.015625em;
-}
-</style>
-
-<navbar />
+<style scoped></style>
