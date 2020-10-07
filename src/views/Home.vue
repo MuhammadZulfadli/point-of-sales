@@ -8,10 +8,10 @@
           <v-card class="pa-2" outlined shaped>
             <v-img
               :src="card.src"
+              @click="addItemToCard(card), (snackbar = true)"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
-              @click="addItemToCard(card), (snackbar = true)"
             >
               <v-card-title class="text">{{ card.item }}</v-card-title>
             </v-img>
@@ -52,13 +52,9 @@
     <v-container class="my-5">
       <v-row>
         <v-col v-for="card in makanan" :key="card.id" cols="12" md="4" sm="6">
-          <v-card
-            @click="addItemToCard(card), (snackbar = true)"
-            class="pa-2"
-            outlined
-            shaped
-          >
+          <v-card class="pa-2" outlined shaped>
             <v-img
+              @click="addItemToCard(card), (snackbar = true)"
               :src="card.src"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
