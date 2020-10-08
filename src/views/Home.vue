@@ -114,11 +114,11 @@ export default {
       snackbar: false,
       text: "Ditambahkan ke keranjang",
       timeout: 2000,
-      y: "top",
+      y: "top"
     };
   },
   components: {
-    Navigation,
+    Navigation
   },
   computed: {
     minuman() {
@@ -126,10 +126,10 @@ export default {
     },
     makanan() {
       return this.$store.getters.getData;
-    },
+    }
   },
   methods: {
-    ...mapActions(["addItemToCard"]),
-  },
+    ...mapActions(["addItemToCard"])
+  }
 };
 </script>

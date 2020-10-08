@@ -61,14 +61,14 @@ import { mapActions } from "vuex";
 export default {
   name: "Makanan",
   components: {
-    Navigation,
+    Navigation
   },
   data() {
     return {
       snackbar: false,
       text: "Ditambahkan ke keranjang",
       timeout: 2000,
-      y: "top",
+      y: "top"
     };
   },
   computed: {
@@ -80,25 +80,23 @@ export default {
     },
     idr() {
       return this.$store.getters.idr;
-    },
+    }
   },
   methods: {
     ...mapActions(["addItemToCard"]),
     filteredResources() {
       if (this.searchQuery) {
         // console.log(this.searchQuery)
-        return this.makanans.filter((items) => {
+        return this.makanans.filter(items => {
           return this.searchQuery
             .toLowerCase()
             .split(" ")
-            .every((v) => items.item.toLowerCase().includes(v));
+            .every(v => items.item.toLowerCase().includes(v));
         });
       } else {
         return this.makanans;
       }
-    },
-  },
+    }
+  }
 };
 </script>
-
-<style scoped></style>

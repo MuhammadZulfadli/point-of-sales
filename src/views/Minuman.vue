@@ -60,11 +60,11 @@ export default {
       snackbar: false,
       text: "Ditambahkan ke keranjang",
       timeout: 2000,
-      y: "top",
+      y: "top"
     };
   },
   components: {
-    Navigation,
+    Navigation
   },
   computed: {
     minumans() {
@@ -75,28 +75,26 @@ export default {
     },
     searchQuery() {
       return this.$store.getters.searchQuery;
-    },
+    }
   },
   methods: {
     ...mapActions(["addItemToCard"]),
     filteredResources() {
       if (this.searchQuery) {
         // console.log(this.searchQuery)
-        return this.minumans.filter((items) => {
+        return this.minumans.filter(items => {
           return this.searchQuery
             .toLowerCase()
             .split(" ")
-            .every((v) => items.item.toLowerCase().includes(v));
+            .every(v => items.item.toLowerCase().includes(v));
         });
       } else {
         return this.minumans;
       }
-    },
+    }
   },
   mounted() {
     console.log(this.cart);
-  },
+  }
 };
 </script>
-
-<style scoped></style>
