@@ -309,6 +309,9 @@ export default new Vuex.Store({
     addNotesToCard({ commit, id }) {
       commit("addKeterangan", id);
     },
+    // showNotification({ commit }) {
+    //   commit("notification");
+    // },
   },
   mutations: {
     updateMessage(state, payload) {
@@ -343,6 +346,14 @@ export default new Vuex.Store({
     removeListM(state, id) {
       state.card = state.card.filter((product) => product.id !== id);
     },
+    // notification() {
+    //   return this.$toast.success("Item ditambahkan ke keranjang", {
+    //     position: "top-right",
+    //     type: "success",
+    //     duration: 2000,
+    //     dismissable: true,
+    //   });
+    // },
   },
   modules: {},
 });

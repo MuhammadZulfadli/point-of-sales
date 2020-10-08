@@ -7,7 +7,7 @@
           <v-card class="pa-2 rounded-xl card-hover" outlined>
             <v-card-title class="text-item">{{ mn.item }}</v-card-title>
             <v-img
-              @click="addItemToCard(mn), (snackbar = true)"
+              @click="addItemToCard(mn), notification()"
               :src="mn.src"
               class="white--text align-end rounded-xl"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -16,28 +16,10 @@
             </v-img>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-card-title class="text-price"
-                >Rp. {{ mn.harga }}</v-card-title
-              > </v-card-actions
-            ><!-- Snackbar Notification -->
-            <v-snackbar
-              v-model="snackbar"
-              :timeout="timeout"
-              :top="y === 'top'"
-            >
-              {{ text }}
-              <template v-slot:action="{ attrs }">
-                <v-btn
-                  color="red darken-2"
-                  text
-                  v-bind="attrs"
-                  @click="snackbar = false"
-                  >Close</v-btn
-                >
-              </template>
-            </v-snackbar>
+              <v-card-title class="text-price">Rp. {{ mn.harga }}</v-card-title>
+            </v-card-actions>
             <v-btn
-              @click="addItemToCard(mn), (snackbar = true)"
+              @click="addItemToCard(mn), notification()"
               color="white--text orange darken-4"
               class="rounded-xl text-capitalize"
               width="100%"
@@ -56,12 +38,7 @@ import { mapActions } from "vuex";
 export default {
   name: "Minuman",
   data() {
-    return {
-      snackbar: false,
-      text: "Ditambahkan ke keranjang",
-      timeout: 2000,
-      y: "top"
-    };
+    return {};
   },
   components: {
     Navigation
@@ -91,6 +68,14 @@ export default {
       } else {
         return this.minumans;
       }
+    },
+    notification() {
+      return this.$toast.success("Item ditambahkan ke keranjang", {
+        position: "top-right",
+        type: "success",
+        duration: 2000,
+        dismissable: true
+      });
     }
   },
   mounted() {
@@ -98,3 +83,5 @@ export default {
   }
 };
 </script>
+
+<style scoped></style>

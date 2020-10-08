@@ -139,4 +139,4 @@ export default {
 .search-bar {
   margin: auto;
 }
-</style>
+</style>>
