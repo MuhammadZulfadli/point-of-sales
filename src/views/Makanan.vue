@@ -22,7 +22,10 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-card-title class="text-price"
-                >Rp. {{ makanan.harga }}</v-card-title
+                >Rp.
+                {{
+                  makanan.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                }}</v-card-title
               >
             </v-card-actions>
 

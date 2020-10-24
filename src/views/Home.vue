@@ -18,7 +18,10 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-card-title class="text-price"
-                >Rp. {{ card.harga }}
+                >Rp.
+                {{
+                  card.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                }}
               </v-card-title>
             </v-card-actions>
             <v-btn

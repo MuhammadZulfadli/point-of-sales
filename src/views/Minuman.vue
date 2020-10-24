@@ -16,7 +16,12 @@
             </v-img>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-card-title class="text-price">Rp. {{ mn.harga }}</v-card-title>
+              <v-card-title class="text-price"
+                >Rp.
+                {{
+                  mn.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                }}</v-card-title
+              >
             </v-card-actions>
             <v-btn
               @click="addItemToCard(mn), notification()"
@@ -41,7 +46,7 @@ export default {
     return {};
   },
   components: {
-    Navigation
+    Navigation,
   },
   computed: {
     minumans() {
@@ -52,18 +57,18 @@ export default {
     },
     searchQuery() {
       return this.$store.getters.searchQuery;
-    }
+    },
   },
   methods: {
     ...mapActions(["addItemToCard"]),
     filteredResources() {
       if (this.searchQuery) {
         // console.log(this.searchQuery)
-        return this.minumans.filter(items => {
+        return this.minumans.filter((items) => {
           return this.searchQuery
             .toLowerCase()
             .split(" ")
-            .every(v => items.item.toLowerCase().includes(v));
+            .every((v) => items.item.toLowerCase().includes(v));
         });
       } else {
         return this.minumans;
@@ -74,13 +79,13 @@ export default {
         position: "top-right",
         type: "success",
         duration: 2000,
-        dismissable: true
+        dismissable: true,
       });
-    }
+    },
   },
   mounted() {
     console.log(this.cart);
-  }
+  },
 };
 </script>
 

@@ -32,15 +32,27 @@
                   <td>{{ item.item }}</td>
                   <td>{{ item.keterangan }}</td>
                   <td>{{ item.qty }}</td>
-                  <td>Rp. {{ item.harga }}</td>
+                  <td>
+                    Rp.
+                    {{
+                      item.harga
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                    }}
+                  </td>
                   <td>Rp. {{ item.qty * item.harga }}</td>
                 </tr>
                 <tr>
                   <td colspan="2">Total</td>
                   <td></td>
-                  <td>{{ jumlahPesanan }}</td>
+                  <td>
+                    {{ jumlahPesanan }}
+                  </td>
                   <td></td>
-                  <td>Rp. {{ total }}</td>
+                  <td>
+                    Rp.
+                    {{ total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}
+                  </td>
                 </tr>
               </tbody>
             </template>
@@ -70,7 +82,7 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      dialog: false
+      dialog: false,
     };
   },
   computed: {
@@ -80,8 +92,8 @@ export default {
     },
     jumlahPesanan() {
       return this.card.reduce((a, b) => a + b.qty, 0);
-    }
-  }
+    },
+  },
 };
 </script>
 

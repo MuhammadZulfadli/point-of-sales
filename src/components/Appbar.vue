@@ -11,13 +11,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- Search -->
-      <v-text-field
-        v-model="message"
-        flat
-        hide-details
-        label="Search"
-        solo-inverted
-      ></v-text-field>
+      <v-text-field v-model="message" flat hide-details label="Search" solo-inverted>T</v-text-field>
       <!-- Cart icon -->
       <v-btn icon color="grey" class="mx-10" to="/cart">
         <v-icon right>mdi-shopping</v-icon>
@@ -49,11 +43,6 @@ export default {
         { icon: "mdi-home", text: "Home", route: "/" },
         { icon: "mdi-food", text: "Makanan", route: "/makanan" },
         { icon: "mdi-coffee", text: "Minuman", route: "/minuman" }
-        // {
-        //   icon: "mdi-file-chart",
-        //   text: "Report Transaksi",
-        //   route: "/transaksi"
-        // }
       ]
     };
   },
@@ -74,4 +63,3 @@ export default {
 };
 </script>
 
-<style></style>

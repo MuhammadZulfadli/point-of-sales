@@ -72,7 +72,7 @@
         <v-text-field
           prepend-inner-icon="mdi-magnify"
           v-model="message"
-          label="Nasi Kucing"
+          label="Cari menu yang kamu inginkan"
           outlined
           dense
         ></v-text-field>
@@ -92,8 +92,7 @@ export default {
         { icon: "mdi-home", text: "Semua Menu", route: "/" },
         { icon: "mdi-food", text: "Makanan", route: "/makanan" },
         { icon: "mdi-coffee", text: "Minuman", route: "/minuman" },
-        { icon: "mdi-file-chart", text: "Konfirmasi", route: "/konfirmasi" }
-      ]
+      ],
     };
   },
   computed: {
@@ -107,9 +106,9 @@ export default {
       },
       set(value) {
         this.$store.commit("updateMessage", value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 
@@ -138,5 +137,5 @@ export default {
 
 .search-bar {
   margin: auto;
-}
-</style>>
+}</style
+>>

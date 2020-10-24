@@ -9,7 +9,12 @@
             <v-list-item-title class="headline mb-1">{{
               it.item
             }}</v-list-item-title>
-            <v-list-item-subtitle>Rp. {{ it.harga }}</v-list-item-subtitle>
+            <v-list-item-subtitle
+              >Rp.
+              {{
+                it.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+              }}</v-list-item-subtitle
+            >
           </v-list-item-content>
 
           <v-list-item-avatar tile size="80" color="grey">
@@ -41,7 +46,12 @@
 
     <v-card class="mx-auto" max-width="544" outlined>
       <v-card-title>Jumlah Pesanan : {{ jumlahPesanan }}</v-card-title>
-      <v-card-title>Total: Rp. {{ total }}</v-card-title>
+      <v-card-title
+        >Total: Rp.
+        {{
+          total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        }}</v-card-title
+      >
     </v-card>
     <Checkout />
   </div>
@@ -59,7 +69,7 @@ export default {
   components: {
     Checkout,
     Notes,
-    Breadcrumbs
+    Breadcrumbs,
   },
   computed: {
     ...mapGetters(["card"]),
@@ -71,15 +81,15 @@ export default {
     },
     jumlahPesanan() {
       return this.card.reduce((a, b) => a + b.qty, 0);
-    }
+    },
   },
   methods: {
-    ...mapActions(["addList", "reduceList", "removeList"])
+    ...mapActions(["addList", "reduceList", "removeList"]),
   },
   mounted() {
     this.card;
     scrollTo(0, 0);
-  }
+  },
 };
 </script>
 
