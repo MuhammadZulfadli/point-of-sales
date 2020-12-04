@@ -44,8 +44,8 @@
     <!-- Desktop -->
     <v-container class="d-none d-sm-flex d-md-none d-lg-flex">
       <v-app-bar elevation app flat color="white">
-        <v-toolbar-title>
-          <p>Angkringan 4.0</p>
+        <v-toolbar-title >
+          <h1 class="text-lg-h4 ml-14">Angkringan 4.0</h1>
         </v-toolbar-title>
         <v-tabs centered color="orange darken-4">
           <v-tab
